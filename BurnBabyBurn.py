@@ -5,6 +5,7 @@ class LaunchStageNode:
     def __init__(self, code_name, access_code):
         self.code_name = code_name
         self.access_code = access_code
+        self.data = "no"
         self.children = []
         self.parent = None
 
@@ -44,8 +45,10 @@ class LaunchTree:
         
         
         if self.current_stage.children:
+            self.current_stage.data = "yes"
             self.current_stage = self.current_stage.children[0]
         else:
+            self.current_stage = "yes"
             self.current_stage = None
             
         print("Executed")
